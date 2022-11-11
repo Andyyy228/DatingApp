@@ -12,6 +12,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+// Y6DKN813DA5056077
+
 namespace API.Controllers
 {
     public class AccountController : BaseApiController
@@ -47,7 +49,8 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                KnownAs = user.KnownAs 
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 
@@ -74,7 +77,8 @@ namespace API.Controllers
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
                 PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
-                KnownAs = user.KnownAs
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 
